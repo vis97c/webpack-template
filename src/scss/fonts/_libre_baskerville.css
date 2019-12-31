@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('./../assets/libre_baskerville/LibreBaskerville-Bold.eot');
+    src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Bold.woff2') format('woff2'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Bold.woff') format('woff'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('./../assets/libre_baskerville/LibreBaskerville-Regular.eot');
+    src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Regular.woff2') format('woff2'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Regular.woff') format('woff'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('./../assets/libre_baskerville/LibreBaskerville-Italic.eot');
+    src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Italic.woff2') format('woff2'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Italic.woff') format('woff'),
+        url('./../assets/libre_baskerville/LibreBaskerville-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}

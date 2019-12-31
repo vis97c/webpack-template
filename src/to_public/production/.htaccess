@@ -1,0 +1,58 @@
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|svg|js|css|swf)$">
+	Header add Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+
+	#https rdr
+		RewriteCond %{HTTPS} off
+		RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	#www rdr
+		RewriteCond %{HTTP_HOST} !^www\. [NC]
+		RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	
+	#spa route handling part 2
+		RewriteRule . /index.html [L]
+		
+</IfModule>
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE text/xml
+	AddOutputFilterByType DEFLATE application/xml
+	AddOutputFilterByType DEFLATE application/xhtml+xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+	AddOutputFilterByType DEFLATE application/x-font
+	AddOutputFilterByType DEFLATE application/x-font-opentype
+	AddOutputFilterByType DEFLATE application/x-font-otf
+	AddOutputFilterByType DEFLATE application/x-font-truetype
+	AddOutputFilterByType DEFLATE image/jpeg
+	AddOutputFilterByType DEFLATE image/png
+	AddOutputFilterByType DEFLATE image/gif
+	AddOutputFilterByType DEFLATE image/bmp
+	AddOutputFilterByType DEFLATE image/jpeg,
+	AddOutputFilterByType DEFLATE image/svg+xml
+	AddOutputFilterByType DEFLATE image/x-icon
+	AddOutputFilterByType DEFLATE audio/mpeg
+	AddOutputFilterByType DEFLATE audio/*
+	AddOutputFilterByType DEFLATE video/mp4
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch ".(js|css|xml|gz|html)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+ErrorDocument 404 /404

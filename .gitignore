@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+public_html
+package-lock.json
+*.lock
+.env

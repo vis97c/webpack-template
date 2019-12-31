@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	
+	#spa route handling part 2
+		RewriteRule . /index.html [L]
+		
+</IfModule>
+
+ErrorDocument 404 /404

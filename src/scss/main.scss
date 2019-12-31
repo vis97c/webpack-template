@@ -1,0 +1,25 @@
+// main.scss
+// @import 'fonts/module';
+@import 'base/module';
+// @import 'components/module';
+// @import 'pseudo/module';
+// html{
+// 	scroll-snap-type: proximity;
+// 	scroll-snap-points-y: repeat(100vh);
+// 	scroll-snap-type: y proximity;
+// }
+body{
+	width: 100%;
+	// font-family: $main_font;
+	// background: #000;
+	overflow: hidden;
+	// color: #fff;
+	// @include flexbox(column, nowrap, flex-start, stretch);
+	// &::-webkit-scrollbar{
+	// 	width: 7px;
+	// 	background-color: #000;
+	// }
+	// &::-webkit-scrollbar-thumb{
+	// 	border-width:0;
+	// }
+}

@@ -1,0 +1,3 @@
+#multipush shorthand --use on .git/config file
+[alias]
+	pushall = "!git push origin $1; git push backup $1 #"
