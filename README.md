@@ -42,12 +42,6 @@ vue-webpack-template integra por defecto:
 
 Para instalarla se requiere un entorno de trabajo con node.js y composer. Recuerde clonar el repositorio.
 
-- - Instale los paquetes composer:
-
-```
-     composer install
-```
-
 - - Instale los paquetes npm:
 
 ```bash
