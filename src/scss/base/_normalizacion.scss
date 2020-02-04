@@ -1,12 +1,15 @@
-// _normalizacion.scss
-// inicia: NORMALIZACION
-*{
+/** @format */
+/*
+	Basic reset
+	Some rules are opitionated y/or confictive
+*/
+* {
 	margin: 0;
 	z-index: 1;
 	padding: 0;
 	border: 0;
 	position: relative;
-	font-family:inherit;
+	font-family: inherit;
 	font-weight: 300;
 	@include font-size(2);
 	@include appearance(none);
@@ -26,29 +29,35 @@
 	// 		background-color: $primary;
 	// 	}
 	// }
-	&:active, &:focus, &:hover{
+	&:active,
+	&:focus,
+	&:hover {
 		outline: 0;
 	}
-	&:before, &:after{
+	&:before,
+	&:after {
 		line-height: 1.2em;
 		@include box-sizing(inherit);
 	}
 }
-ul, ol{
+ul,
+ol {
 	list-style: none;
 }
-a{
+a {
 	text-decoration: none;
 }
-a, button, label{
-	> hr{
+a,
+button,
+label {
+	> hr {
 		display: none;
 	}
 }
-textarea{
-	resize:none;
+textarea {
+	resize: none;
 }
-p{
+p {
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -64,36 +73,36 @@ p{
 	-webkit-hyphens: auto;
 	hyphens: auto;
 }
-strong{
-	font-weight:500;
+strong {
+	font-weight: 500;
 	font-size: inherit;
 }
-small{
+small {
 	@include font-size();
 }
-code{
+code {
 	font-family: "Courier New", Courier, monospace;
 }
-svg{
+svg {
 	width: inherit;
 	height: inherit;
-	> *{
-		&[_fill]{
+	> * {
+		&[_fill] {
 			fill: none;
 			stroke: none;
 		}
 	}
 }
-::-webkit-input-placeholder{
+::-webkit-input-placeholder {
 	// color: $secondary;
 }
-::-moz-placeholder{
+::-moz-placeholder {
 	// color: $secondary;
 }
-:-ms-input-placeholder{
+:-ms-input-placeholder {
 	// color: $secondary;
 }
-:-moz-placeholder{
+:-moz-placeholder {
 	// color: $secondary;
 }
 // termina: NORMALIZACION

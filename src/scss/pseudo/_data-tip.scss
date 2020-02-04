@@ -1,40 +1,41 @@
-&[data-tip]{
-	&[data-tip-position]{
-		&[data-tip-position*="top"]{
-			&:after{
-				top:0;
-				left:50%;
+/** @format */
+&[data-tip] {
+	&[data-tip-position] {
+		&[data-tip-position*="top"] {
+			&:after {
+				top: 0;
+				left: 50%;
 				@include transform(translate(-50%, calc(-100% - 0.5em)));
 			}
 		}
-		&[data-tip-position*="right"]{
-			&:after{
+		&[data-tip-position*="right"] {
+			&:after {
 				top: 50%;
 				right: 0;
 				@include transform(translate(calc(100% + 0.5em), -50%));
 			}
 		}
-		&[data-tip-position*="bottom"]{
-			&:after{
+		&[data-tip-position*="bottom"] {
+			&:after {
 				bottom: 0;
-				left:50%;
+				left: 50%;
 				@include transform(translate(-50%, calc(100% + 0.5em)));
 			}
 		}
-		&[data-tip-position*="left"]{
-			&:after{
+		&[data-tip-position*="left"] {
+			&:after {
 				top: 50%;
-				left:0;
+				left: 0;
 				@include transform(translate(calc(-100% - 0.5em), -50%));
 			}
 		}
 	}
-	&[data-tip-text]{
-		&:after{
+	&[data-tip-text] {
+		&:after {
 			text-transform: none;
 		}
 	}
-	&:after{
+	&:after {
 		display: none;
 		overflow: hidden;
 		content: attr(data-tip);
@@ -53,8 +54,8 @@
 		@include box-sizing(content-box);
 		@include box-shadow(5px 5px 15px negro(25));
 	}
-	&:hover:not([disabled]):not([class~="active"]):not([class~="open"]){
-		&:after{
+	&:hover:not([disabled]):not([class~="active"]):not([class~="open"]) {
+		&:after {
 			cursor: text;
 			display: block;
 		}

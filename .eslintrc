@@ -1,0 +1,28 @@
+{
+	"root": true,
+	"parserOptions": {
+		"parser": "babel-eslint",
+		"sourceType": "module",
+		"allowImportExportEverywhere": false,
+		"ecmaVersion": 2015,
+		"ecmaFeatures": {
+			"globalReturn": false
+		}
+	},
+	"env": {
+		"node": true,
+		"browser": true
+	},
+	"extends": ["eslint:recommended"],
+	"plugins": ["prettier"],
+	"rules": {
+		"no-extra-boolean-cast": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		],
+		"no-mixed-spaces-and-tabs": ["warn", "smart-tabs"]
+	}
+}

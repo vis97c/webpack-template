@@ -1,0 +1,10 @@
+{
+	"trailingComma": "es5",
+	"tabWidth": 4,
+	"useTabs": true,
+	"vueIndentScriptAndStyle": true,
+	"endOfLine": "auto",
+	"htmlWhitespaceSensitivity": "ignore",
+	"requirePragma": true,
+	"insertPragma": true
+}

@@ -1,14 +1,31 @@
-// main.scss
+/** @format */
+/*
+	MAIN STYLESHEET
+
+	project definitions
+	base layout ruling
+	module concatenation
+*/
+
 // @import 'fonts/module';
-@import 'base/module';
+@import "base/module";
 // @import 'components/module';
 // @import 'pseudo/module';
+
+:root {
+	@each $name, $font in $fonts {
+		--font-#{$name}: #{$font};
+	}
+	@each $name, $color in $colors {
+		--color-#{$name}: #{$color};
+	}
+}
 // html{
 // 	scroll-snap-type: proximity;
 // 	scroll-snap-points-y: repeat(100vh);
 // 	scroll-snap-type: y proximity;
 // }
-body{
+body {
 	width: 100%;
 	// font-family: $main_font;
 	// background: #000;
