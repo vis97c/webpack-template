@@ -1,12 +1,12 @@
 /** @format */
 /*globals */
+require("es6-promise").polyfill();
 require("dotenv").config({ path: ".env" });
 
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-require("es6-promise").polyfill();
 
 const mode = process.env.NODE_ENV || "development";
 const isProduction = mode === "production";
@@ -47,19 +47,38 @@ var config = {
 					 * MiniCssExtractPlugin doesn't support HMR.
 					 * For developing, use 'style-loader' instead.
 					 * */
-					isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-					"css-loader" + (!isProduction ? "?sourceMap" : ""),
+					...(isProduction
+						? [MiniCssExtractPlugin.loader, "css-loader"]
+						: ["style-loader", "css-loader?sourceMap"]),
 				],
 			},
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
-					// Creates `style` nodes from JS strings
-					isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-					// Translates CSS into CommonJS
-					"css-loader" + (!isProduction ? "?sourceMap" : ""),
-					// Compiles Sass to CSS
-					"sass-loader" + (!isProduction ? "?sourceMap" : ""),
+					...(isProduction
+						? [
+								MiniCssExtractPlugin.loader,
+								"css-loader",
+								{
+									loader: "postcss-loader",
+									options: {
+										plugins: () => [
+											require("autoprefixer"),
+											require("postcss-custom-properties")(
+												{
+													// importFrom: path.resolve(__dirname, "src/scss/base/_variables.scss")
+												}
+											),
+										],
+									},
+								},
+								"sass-loader", // Compiles Sass to CSS
+						  ]
+						: [
+								"style-loader",
+								"css-loader?sourceMap",
+								"sass-loader?sourceMap",
+						  ]),
 				],
 			},
 			{
@@ -142,7 +161,7 @@ if (isProduction) {
 			},
 		}),
 		new CopyPlugin([
-			// { from: 'src/to_public/default', to: '', dot: true },
+			{ from: "src/to_public/default", to: "", dot: true },
 			{ from: "src/to_public/production", to: "", dot: true },
 		])
 	);
@@ -189,7 +208,7 @@ if (isProduction) {
 			hash: true,
 		}),
 		new CopyPlugin([
-			// { from: 'src/to_public/default', to: '', dot: true },
+			{ from: "src/to_public/default", to: "", dot: true },
 			{ from: "src/to_public/dev", to: "", dot: true },
 		]),
 		new WebpackNotifierPlugin({
