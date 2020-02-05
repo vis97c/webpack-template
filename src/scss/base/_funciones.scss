@@ -1,17 +1,26 @@
 /** @format */
 // _funciones.scss
 // rgba para rgba(255,255,255, 0.$opacity)
-@function blanco($opacity) {
-	@return unquote("rgba(255, 255, 255, 0." + $opacity + ")");
-}
-// rgba para rgba(0,0,0, 0.$opacity)
-@function negro($opacity) {
-	@return unquote("rgba(0, 0, 0, 0." + $opacity + ")");
-}
 
-@function narrojo($opacity) {
-	@return rgba($narrojo, $opacity);
+//retorna la fuente del mapa de fuentes
+@function font($font-name) {
+	@return var(--font-#{$font-name});
 }
+//retorna el color del mapa de colores
+@function color($color-name) {
+	@return var(--color-#{$color-name});
+}
+// @function blanco($opacity) {
+// 	@return unquote("rgba(255, 255, 255, 0." + $opacity + ")");
+// }
+// // rgba para rgba(0,0,0, 0.$opacity)
+// @function negro($opacity) {
+// 	@return unquote("rgba(0, 0, 0, 0." + $opacity + ")");
+// }
+
+// @function narrojo($opacity) {
+// 	@return rgba($narrojo, $opacity);
+// }
 // busca y elimina la string dada
 @function str-replace($string, $search, $replace: "") {
 	$index: str-index($string, $search);
