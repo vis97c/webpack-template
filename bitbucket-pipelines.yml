@@ -22,7 +22,6 @@ pipelines:
                       - node
                   script:
                       - npm install
-                      - npm run g_icons
                       - npm run production
                   artifacts:
                       - public_html/**
