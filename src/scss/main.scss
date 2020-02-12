@@ -7,10 +7,7 @@
 	module concatenation
 */
 
-// @import 'fonts/module';
-@import "base/module";
-// @import 'components/module';
-// @import 'pseudo/module';
+@import "utils/module";
 
 :root {
 	@each $name, $font in $fonts {
@@ -20,6 +17,14 @@
 		--color-#{$name}: #{$color};
 	}
 }
+
+// @import 'fonts/module';//this project use google fonts
+@import "base/module";
+@import "components/module";
+@import "layouts/module";
+
+// @import 'components/module';
+// @import 'pseudo/module';
 // html{
 // 	scroll-snap-type: proximity;
 // 	scroll-snap-points-y: repeat(100vh);

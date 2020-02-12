@@ -126,15 +126,14 @@ if (isProduction) {
 	const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 	const PurgecssPlugin = require("purgecss-webpack-plugin");
 	const glob = require("glob");
-	const PATHS = {
-		src: path.join(__dirname, "src"),
-	};
 	config.plugins.push(
 		new MiniCssExtractPlugin({
 			filename: "css/[name].css",
 		}),
 		new PurgecssPlugin({
-			paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+			paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, {
+				nodir: true,
+			}),
 			whitelistPatterns: [/swal/],
 		}),
 		new HtmlWebpackPlugin({
