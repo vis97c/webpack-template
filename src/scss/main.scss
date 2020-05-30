@@ -15,6 +15,7 @@
 	}
 	@each $name, $color in $colors {
 		--color-#{$name}: #{$color};
+		--rgb-#{$name}: #{to-rgb($color)};
 	}
 }
 
