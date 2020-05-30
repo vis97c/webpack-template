@@ -2,13 +2,28 @@
 // _funciones.scss
 // rgba para rgba(255,255,255, 0.$opacity)
 
+//coverts color to rgb, making it compatible with custom vars and opacity
+@function to-rgb($color) {
+	@return red($color) + ", " + green($color) + ", " + blue($color);
+}
+
 //retorna la fuente del mapa de fuentes
 @function font($font-name) {
 	@return var(--font-#{$font-name});
 }
 //retorna el color del mapa de colores
-@function color($color-name) {
-	@return var(--color-#{$color-name});
+@function color($color-name, $rgb: false) {
+	@if $rgb {
+		@return unquote(
+			"rgba(" +
+				var(
+					--rgb-#{$color-name},
+					#{to-rgb(map-get($colors, $color-name))}
+				) + "," + $rgb + ")"
+		);
+	} @else {
+		@return var(--hex-#{$color-name}, #{map-get($colors, $color-name)});
+	}
 }
 // @function blanco($opacity) {
 // 	@return unquote("rgba(255, 255, 255, 0." + $opacity + ")");
